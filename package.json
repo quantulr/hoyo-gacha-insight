@@ -11,11 +11,20 @@
     "fmt": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "dependencies": {
+    "@uppy/core": "^4.2.2",
+    "@uppy/dashboard": "^4.1.1",
+    "@uppy/drag-drop": "^4.0.3",
+    "@uppy/file-input": "^4.0.2",
+    "@uppy/locales": "^4.2.0",
+    "@uppy/progress-bar": "^4.0.0",
+    "@uppy/react": "^4.0.2",
     "chart.js": "^4.4.5",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.27.0"
+    "react-router-dom": "^6.27.0",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
+    "zustand": "^5.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",

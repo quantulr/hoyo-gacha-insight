@@ -46,7 +46,7 @@ function MainLayout() {
           ))}
         </ul>
       </nav>
-      <main>
+      <main className="flex-1">
         {/* {location.pathname} */}
         {/* <RouterProvider router={router} /> */}
         <Outlet />
