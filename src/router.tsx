@@ -1,4 +1,4 @@
-import { createBrowserRouter, redirect } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "@/components/MainLayout";
 import GenshinGachaInsight from "@/components/GenshinGachaInsight";
 import HonkaiStarRailGachaInsight from "./components/HonkaiStarRailGachaInsight";

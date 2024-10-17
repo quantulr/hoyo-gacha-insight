@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Outlet, redirect, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const games: GameNav[] = [
   {
