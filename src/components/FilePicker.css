@@ -1,4 +1,7 @@
 #uppy-dragdrop button.uppy-DragDrop-container {
-    background-color: rgba(255, 255, 255, 0.279);
-  }
-  
+  background-color: rgba(255, 255, 255, 0.178);
+}
+
+#uppy-dragdrop .uppy-DragDrop-label .uppy-DragDrop-browse {
+  color: white;
+}
