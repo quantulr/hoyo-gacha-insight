@@ -14,7 +14,33 @@ const FilePicker = () => {
       new Uppy({
         locale: zh_CN,
         onBeforeFileAdded(currentFile, _files) {
-          console.log(currentFile.data);
+          console.log(currentFile.extension);
+          const ext = currentFile.extension;
+          if (ext === "json") {
+            // json
+            // reader
+            // console.log( currentFile.data.text());
+            currentFile.data.text().then((text) => {
+              const gachaData: any[] = JSON.parse(text)["hkrpg"][0]["list"];
+              console.log(gachaData);
+
+              // const gachaCz = gachaData.filter(
+              //   (el) => el["gacha_type"] === "1",
+              // );
+              // const gachaNew = gachaData.filter(
+              //   (el) => el["gacha_type"] === "2",
+              // );
+              // const gachaCharact = gachaData.filter(
+              //   (el) => el["gacha_type"] === "11",
+              // );
+              // const gachaWep = gachaData.filter(
+              //   (el) => el["gacha_type"] === "12",
+              // );
+              // console.log(gachaNew);
+            });
+          } else if (ext === "xlsx") {
+            // excel
+          }
           return currentFile;
         },
 
