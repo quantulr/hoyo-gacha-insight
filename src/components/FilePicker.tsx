@@ -7,8 +7,12 @@ import "@uppy/core/dist/style.min.css";
 import "@uppy/drag-drop/dist/style.min.css";
 // import "@uppy/dashboard/dist/style.min.css";
 import "./FilePicker.css";
+import useHonkaiStarRailGhachaStore from "@/store/honkaiStarRailGachaStore";
 
 const FilePicker = () => {
+  const setCharacters = useHonkaiStarRailGhachaStore(
+    (state) => state.setCharacters,
+  );
   const [uppy] = useState(
     () =>
       new Uppy({
@@ -30,13 +34,14 @@ const FilePicker = () => {
               // const gachaNew = gachaData.filter(
               //   (el) => el["gacha_type"] === "2",
               // );
-              // const gachaCharact = gachaData.filter(
-              //   (el) => el["gacha_type"] === "11",
-              // );
+              const gachaCharact = gachaData.filter(
+                (el) => el["gacha_type"] === "11",
+              );
               // const gachaWep = gachaData.filter(
               //   (el) => el["gacha_type"] === "12",
               // );
               // console.log(gachaNew);
+              setCharacters(gachaCharact);
             });
           } else if (ext === "xlsx") {
             // excel
