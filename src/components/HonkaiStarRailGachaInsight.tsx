@@ -1,5 +1,14 @@
 import useHonkaiStarRailGhachaStore from "@/store/honkaiStarRailGachaStore";
 import FilePicker from "./FilePicker";
+import {
+  Table,
+  TableContainer,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr,
+} from "@chakra-ui/react";
 
 const HonkaiStarRailGachaInsight = () => {
   const characters = useHonkaiStarRailGhachaStore((state) => state.characters);
@@ -17,13 +26,43 @@ const HonkaiStarRailGachaInsight = () => {
         className="absolute left-4 top-4 z-20 w-32"
       />
       {characters.length > 0 ? (
-        <ul className="ab absolute left-0 top-0 z-30 h-full w-full overflow-y-scroll p-8">
-          {characters.map((el) => (
-            <li key={el.id}>
-              {el.name}---{el.item_type}---{el.rank_type}
-            </li>
-          ))}
-        </ul>
+        <div className="absolute left-0 top-0 flex h-full w-full">
+          <div className="flex-1"></div>
+          <TableContainer
+            bgColor={"white"}
+            className="my-16 mr-16 flex-[2] rounded-lg"
+            overflowY={"auto"}
+          >
+            <Table className="">
+              <Thead className="sticky top-0 bg-white">
+                <Tr>
+                  <Th>名称</Th>
+                  <Th>类型</Th>
+                  <Th>稀有度</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {characters.map((character) => (
+                  <Tr
+                    key={character["id"]}
+                    color={"white"}
+                    bgColor={
+                      character["rank_type"] === "5"
+                        ? "gold"
+                        : character["rank_type"] === "4"
+                          ? "purple"
+                          : "blue"
+                    }
+                  >
+                    <Td>{character["name"]}</Td>
+                    <Td>{character["item_type"]}</Td>
+                    <Td>{character["rank_type"]}</Td>
+                  </Tr>
+                ))}
+              </Tbody>
+            </Table>
+          </TableContainer>
+        </div>
       ) : (
         <FilePicker />
       )}
